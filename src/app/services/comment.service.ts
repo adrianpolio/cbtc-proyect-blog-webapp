@@ -15,7 +15,7 @@ export interface CommentRequest {
 @Injectable({ providedIn: 'root' })
 export class CommentService {
 
-  private baseUrl = `${environment.apiUrl}/comms`;
+  private baseUrl = `${environment.apiUrl}/comments`;
 
   constructor(private http: HttpClient) {}
 
