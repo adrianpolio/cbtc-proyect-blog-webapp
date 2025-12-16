@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+// Importar fonts (elige una combinación)
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+// Variables de fuentes
+$font-heading: 'Playfair Display', serif;
+$font-body: 'Inter', sans-serif;
+$font-mono: 'Courier New', monospace;
+$font-special: 'Raleway', sans-serif;
+
+// Tamaños de fuente
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-xxl: 1.5rem;
+
+// Aplicación en selectores
+body {
+  font-family: $font-body;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+blockquote {
+  font-family: $font-special;
+  font-style: italic;
+  font-size: $font-size-lg;
+}
+
+code, pre {
+  font-family: $font-mono;
+}
+
+// Para elementos especiales
+.post-title {
+  font-family: $font-heading;
+  font-weight: 700;
+}
+
+.meta-info {
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  font-weight: 300;
+}
+
+.lead-paragraph {
+  font-family: $font-body;
+  font-size: $font-size-lg;
+  font-weight: 300;
+  line-height: 1.7;
+}
