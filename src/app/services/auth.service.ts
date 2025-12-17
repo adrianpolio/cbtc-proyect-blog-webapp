@@ -19,9 +19,10 @@ export class AuthService {
     return this.username$.asObservable()
   }
 
-  login(token: string, username: string) {
+  login(token: string, username: string, role: string) {
     localStorage.setItem('token', token)
     localStorage.setItem('username', username)
+    if (role) localStorage.setItem('role', role)
 
     this.loggedIn$.next(true)
     this.username$.next(username)
@@ -35,5 +36,10 @@ export class AuthService {
 
   private hasToken(): boolean {
     return !!localStorage.getItem('token')
+  }
+
+  isAdminOrSuper(): boolean {
+  const role = localStorage.getItem('role');
+  return role === 'ADMIN' || role === 'SUPER_ADMIN';
   }
 }

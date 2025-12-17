@@ -23,4 +23,7 @@ export class BlogService {
   createBlog(blog: Partial<Blog>): Observable<Blog> {
     return this.http.post<Blog>(this.baseUrl, blog);
   }
+  deleteBlog(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  }
 }

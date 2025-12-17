@@ -1,15 +1,18 @@
-  <a class="create-blog-btn" routerLink="/blogs/create">
-    <span class="material-icons">add</span> Crear Blog
-  </a>
+<a class="create-blog-btn" routerLink="/blogs/create">
+  <span class="material-icons">add</span> Crear Blog
+</a>
+
 <div class="blogs-list">
+  <div *ngFor="let blog of blogs" class="blog-card" [routerLink]="['/blogs', blog.blogId]">
+    <div class="card-header">
+      <p class="author">
+        Por {{ blog.userName }} · {{ blog.blogDate | date:'mediumDate' }}
+      </p>
 
-  <div *ngFor="let blog of blogs"
-       class="blog-card"
-       [routerLink]="['/blogs', blog.blogId]">
-
-    <p class="author">
-      Por {{ blog.userName }} · {{ blog.blogDate | date:'mediumDate' }}
-    </p>
+      <button class="delete-btn" *ngIf="canDelete()" (click)="deleteBlog(blog.blogId); $event.stopPropagation()">
+        <span class="material-icons">delete</span> Eliminar
+      </button>
+    </div>
 
     <h2 class="title">{{ blog.title }}</h2>
 
@@ -20,7 +23,5 @@
     <small class="comments-count">
       <span class="material-icons">chat_bubble</span> {{ blog.comments.length }}
     </small>
-
   </div>
-
 </div>

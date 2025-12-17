@@ -22,6 +22,9 @@
   <div *ngFor="let comment of blog.comments" class="comment">
     <p>{{ comment.comment }}</p>
     <small>— {{ comment.userName }}</small>
+    <button class="delete-btn" *ngIf="canDelete()" (click)="deleteComment(comment.commentId); $event.stopPropagation()">
+      <span class="material-icons">delete</span>
+    </button>
   </div>
 
   <div *ngIf="isLoggedIn(); else loginPrompt" class="comment-form">

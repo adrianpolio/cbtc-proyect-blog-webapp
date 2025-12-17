@@ -45,8 +45,9 @@ export class LoginComponent {
       	localStorage.setItem('username', data.username)
       	localStorage.setItem('userName', data.username) 
       	localStorage.setItem('userId', data.userId.toString())
-    	this.authService.login(data.token, data.username)
-
+		localStorage.setItem('role', data.role); 
+		
+		this.authService.login(data.token, data.username, data.role)
   		this.router.navigate(['/'])
 	}
 }

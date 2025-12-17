@@ -86,3 +86,43 @@
   line-height: 1;
   vertical-align: middle;   
 }
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+ .delete-btn {
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #f88c8c, #f95a5a);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(135deg, #c95555, #b83b3b);
+      transform: translateY(-1px);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .material-icons {
+      font-size: 16px;
+      line-height: 1;
+      vertical-align: middle;
+    }
+  }
