@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
 import { Router } from '@angular/router'
+import { AuthService } from '../../services/auth.service'
 
 @Component({
 	selector: 'app-login',
@@ -15,18 +16,21 @@ export class LoginComponent {
 	password = ''
 	error = ''
 
-	constructor(private router: Router) {}
+	constructor(
+		private router: Router,
+		private authService: AuthService
+	) {}
 
 	async login() {
 		this.error = ''
 
-		const res = await fetch('http://localhost:8080/auth/login', {
+		const res = await fetch('http://localhost:8090/auth/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
-				username: this.username,
+				email: this.username,
 				password: this.password
 			})
 		})
@@ -38,7 +42,11 @@ export class LoginComponent {
 
 		const data = await res.json()
 		localStorage.setItem('token', data.token)
+      	localStorage.setItem('username', data.username)
+      	localStorage.setItem('userName', data.username) 
+      	localStorage.setItem('userId', data.userId.toString())
+    	this.authService.login(data.token, data.username)
 
-		this.router.navigate(['/blogs'])
+  		this.router.navigate(['/'])
 	}
 }

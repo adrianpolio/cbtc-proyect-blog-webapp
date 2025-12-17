@@ -39,7 +39,7 @@
 
 .login-container input:focus {
 	outline: none;
-	border-color: #2563eb;
+	border-color: #b899d4;
 	box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 	background: #ffffff;
 }
@@ -50,7 +50,7 @@
 	font-size: 0.95rem;
 	font-weight: 600;
 	color: #ffffff;
-	background: #2563eb;
+	background: #b899d4;
 	border: none;
 	border-radius: 6px;
 	cursor: pointer;
@@ -58,7 +58,7 @@
 }
 
 .login-container button:hover {
-	background: #1e40af;
+	background: #a983ca;
 }
 
 .login-container button:active {

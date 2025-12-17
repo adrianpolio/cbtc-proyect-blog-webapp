@@ -1,0 +1,27 @@
+<app-header></app-header>
+
+<div class="blog-create-container">
+  <h2>Crear Blog Nuevo</h2>
+
+  <form (ngSubmit)="createBlog()">
+    <input
+      type="text"
+      placeholder="Título"
+      [(ngModel)]="title"
+      name="title"
+      required
+    />
+
+    <textarea
+      placeholder="Descripción"
+      [(ngModel)]="description"
+      name="description"
+      rows="6"
+      required
+    ></textarea>
+
+    <button type="submit">Crear Blog</button>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+  </form>
+</div>

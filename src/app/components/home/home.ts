@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { HeaderComponent } from '../../shared/header/header'
+import { BlogListComponent } from '../blog-list/blog-list'
 
 @Component({
   selector: 'app-home',
-  imports: [],
   standalone: true,
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    BlogListComponent
+  ],
   templateUrl: './home.html',
-  styleUrl: './home.scss',
-})
-export class Home {
+  styleUrls: ['./home.scss']
 
-}
+})
+export class HomeComponent {}

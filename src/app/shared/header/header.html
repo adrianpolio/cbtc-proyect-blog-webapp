@@ -1,0 +1,23 @@
+<header class="header">
+  <div class="header-content">
+    <a class="brand" routerLink="/">
+      VBlog
+    </a>
+
+    <div class="user-area">
+      <button *ngIf="!isLoggedIn"
+              class="login-btn"
+              (click)="login()">
+        <span class="material-icons">login</span>
+        Iniciar sesión
+      </button>
+
+      <div *ngIf="isLoggedIn" class="user-info">
+        <span>{{ username }}</span>
+        <button class="logout-btn" (click)="logout()">
+          <span class="material-icons">logout</span> Salir
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

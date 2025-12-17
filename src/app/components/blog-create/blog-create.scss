@@ -1,0 +1,44 @@
+.blog-create-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  background: #fff;
+
+  h2 {
+    margin-bottom: 16px;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+  }
+
+  button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #b899d4;
+    color: #fff;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background: #a983ca;
+  }
+
+  .error {
+    color: red;
+    margin-top: 8px;
+    font-size: 0.85rem;
+  }
+}

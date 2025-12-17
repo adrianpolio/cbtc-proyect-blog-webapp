@@ -5,11 +5,12 @@ import { BlogService } from '../../services/blog.service';
 import { CommentService } from '../../services/comment.service';
 import { Blog, Comment } from '../../models/blog.model';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from '../../shared/header/header';
 
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, HeaderComponent],
   templateUrl: './blog-detail.html',
   styleUrls: ['./blog-detail.scss'] 
 })
@@ -47,28 +48,40 @@ export class BlogDetailComponent implements OnInit {
   }
 
   addComment() {
-    if (!this.isLoggedIn()) {
-      this.router.navigate(['/login']);
-      return;
-    }
-
-    const userId = Number(localStorage.getItem('userId'));
-    const userName = localStorage.getItem('userName') || 'Usuario';
-
-    if (!this.newComment.trim() || !this.blog) return;
-
-    this.commentService.saveComment({
-      blogId: this.blog.blogId,
-      comment: this.newComment.trim(),
-      userId: userId,
-      userName: userName
-    }).subscribe({
-      next: (res: Comment) => {
-        this.blog?.comments.push(res); 
-        this.newComment = '';           
-        this.cdr.detectChanges();
-      },
-      error: (err) => console.error('Error al publicar comentario', err)
-    });
+  if (!this.isLoggedIn()) {
+    this.router.navigate(['/login']);
+    return;
   }
-}
+
+  const userIdStr = localStorage.getItem('userId');
+  const userName = localStorage.getItem('userName') || 'Usuario';
+
+  if (!userIdStr) {
+    console.error('No se encontró userId en localStorage');
+    alert('Debes iniciar sesión para comentar');
+    this.router.navigate(['/login']);
+    return;
+  }
+
+  const userId = Number(userIdStr);
+
+  if (!this.newComment.trim() || !this.blog) return;
+
+  this.commentService.saveComment({
+    blogId: this.blog.blogId,
+    comment: this.newComment.trim(),
+    userId: userId
+  }).subscribe({
+    next: (res: Comment) => {
+      const commentWithUser: Comment = {
+        ...res,
+        userName: userName
+      };
+
+      this.blog?.comments.push(commentWithUser);
+      this.newComment = '';
+      this.cdr.detectChanges();
+    },
+    error: (err) => console.error('Error al publicar comentario', err)
+  });
+}}

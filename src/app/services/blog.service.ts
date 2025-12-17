@@ -20,4 +20,7 @@ export class BlogService {
   getBlogById(id: number): Observable<Blog> {
     return this.http.get<Blog>(`${this.baseUrl}/${id}`);
   }
+  createBlog(blog: Partial<Blog>): Observable<Blog> {
+    return this.http.post<Blog>(this.baseUrl, blog);
+  }
 }

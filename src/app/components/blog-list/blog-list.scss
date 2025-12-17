@@ -1,5 +1,4 @@
 .blogs-list {
-  margin: 40px auto;
   padding: 0 20px;
   font-family: 'Inter', 'Segoe UI', sans-serif;
   color: #222;
@@ -51,4 +50,39 @@
   font-size: 16px;
   margin-right: 4px;
   color: #95bae4;
+}
+.create-blog-btn {
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;                  
+  margin: 12px;
+  padding: 8px 10px;          
+  border-radius: 8px;        
+  background: linear-gradient(135deg, #a49ff8, #8c84f9); 
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;   
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #615ace, #5043b8); 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0); 
+    box-shadow: none;
+  }
+}
+
+.material-icons {
+  font-size: 18px;
+  line-height: 1;
+  vertical-align: middle;   
 }

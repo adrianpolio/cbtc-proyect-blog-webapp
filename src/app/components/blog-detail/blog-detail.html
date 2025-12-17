@@ -1,5 +1,7 @@
-  <button class="back-btn" routerLink="/blogs"> Volver a blogs</button>
+<app-header></app-header>
 <div *ngIf="blog" class="blog-container">
+<button class="back-btn" routerLink="/"> Volver a blogs</button>
+
   <p class="author">
     Por <strong>{{ blog.userName }}</strong> · {{ blog.blogDate | date:'medium' }}
   </p>
