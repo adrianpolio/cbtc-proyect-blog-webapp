@@ -3,15 +3,21 @@
 </a>
 
 <div class="blogs-list">
-  <div *ngFor="let blog of blogs" class="blog-card" [routerLink]="['/blogs', blog.blogId]">
+  <div *ngFor="let blog of blogs" class="blog-card" (click)="goToBlog(blog.blogId)">
     <div class="card-header">
       <p class="author">
         Por {{ blog.userName }} · {{ blog.blogDate | date:'mediumDate' }}
       </p>
-
-      <button class="delete-btn" *ngIf="canDelete()" (click)="deleteBlog(blog.blogId); $event.stopPropagation()">
-        <span class="material-icons">delete</span> Eliminar
-      </button>
+      
+      <div class="card-actions">
+        <button class="edit-btn" *ngIf="canEdit(blog)" (click)="editBlog(blog.blogId); $event.stopPropagation()">
+          <span class="material-icons">edit</span> Editar
+        </button>
+        
+        <button class="delete-btn" *ngIf="canDelete(blog)" (click)="deleteBlog(blog.blogId); $event.stopPropagation()">
+          <span class="material-icons">delete</span> Eliminar
+        </button>
+      </div>
     </div>
 
     <h2 class="title">{{ blog.title }}</h2>

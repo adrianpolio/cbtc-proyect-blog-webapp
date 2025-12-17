@@ -13,9 +13,13 @@
       </button>
 
       <div *ngIf="isLoggedIn" class="user-info">
-        <span>{{ username }}</span>
+        <span class="user-name">
+          <span class="material-icons">person</span>
+          {{ username }}
+        </span>
         <button class="logout-btn" (click)="logout()">
-          <span class="material-icons">logout</span> Salir
+          <span class="material-icons">logout</span>
+          Salir
         </button>
       </div>
     </div>

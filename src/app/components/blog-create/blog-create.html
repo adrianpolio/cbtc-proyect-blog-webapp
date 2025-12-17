@@ -1,27 +1,61 @@
 <app-header></app-header>
 
 <div class="blog-create-container">
-  <h2>Crear Blog Nuevo</h2>
+  <div class="create-header">
+    <h2>
+      <span class="material-icons">add_circle</span>
+      Crear Nuevo Blog
+    </h2>
+    <button class="back-btn" routerLink="/">
+      <span class="material-icons">arrow_back</span>
+      Volver
+    </button>
+  </div>
 
-  <form (ngSubmit)="createBlog()">
-    <input
-      type="text"
-      placeholder="Título"
-      [(ngModel)]="title"
-      name="title"
-      required
-    />
+  <div class="message error" *ngIf="error">
+    <span class="material-icons">error</span>
+    {{ error }}
+  </div>
 
-    <textarea
-      placeholder="Descripción"
-      [(ngModel)]="description"
-      name="description"
-      rows="6"
-      required
-    ></textarea>
+  <div class="message success" *ngIf="success">
+    <span class="material-icons">check_circle</span>
+    {{ success }}
+  </div>
 
-    <button type="submit">Crear Blog</button>
+  <form (ngSubmit)="createBlog()" #createForm="ngForm">
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        [(ngModel)]="title"
+        required
+        placeholder="Ingresa un título atractivo para tu blog"
+      />
+    </div>
 
-    <p class="error" *ngIf="error">{{ error }}</p>
+    <div class="form-group">
+      <label for="description">Contenido</label>
+      <textarea
+        id="description"
+        name="description"
+        [(ngModel)]="description"
+        required
+        rows="6"
+        placeholder="Comparte tus ideas, experiencias o conocimientos aquí..."
+      ></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="create-btn" [disabled]="!title || !description">
+        <span class="material-icons">publish</span>
+        Publicar Blog
+      </button>
+      
+      <button type="button" class="cancel-btn" routerLink="/">
+        <span class="material-icons">cancel</span>
+        Cancelar
+      </button>
+    </div>
   </form>
-</div>

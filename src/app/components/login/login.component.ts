@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth.service'
 	standalone: true,
 	imports: [CommonModule, FormsModule, RouterModule],
 	templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss']
+	styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
 	username = ''
@@ -19,11 +19,14 @@ export class LoginComponent {
 	constructor(
 		private router: Router,
 		private authService: AuthService
-	) {}
+	) { }
 
 	async login() {
 		this.error = ''
-
+		if (!this.username || !this.password) {
+			this.error = 'Todos los campos son obligatorios';
+			return;
+		}
 		const res = await fetch('http://localhost:8090/auth/login', {
 			method: 'POST',
 			headers: {
@@ -42,12 +45,12 @@ export class LoginComponent {
 
 		const data = await res.json()
 		localStorage.setItem('token', data.token)
-      	localStorage.setItem('username', data.username)
-      	localStorage.setItem('userName', data.username) 
-      	localStorage.setItem('userId', data.userId.toString())
-		localStorage.setItem('role', data.role); 
-		
+		localStorage.setItem('username', data.username)
+		localStorage.setItem('userName', data.username)
+		localStorage.setItem('userId', data.userId.toString())
+		localStorage.setItem('role', data.role);
+
 		this.authService.login(data.token, data.username, data.role)
-  		this.router.navigate(['/'])
+		this.router.navigate(['/'])
 	}
 }

@@ -51,7 +51,6 @@ export class RegisterComponent {
         return;
       }
 
-      const data = await res.json();
       this.success = 'Usuario registrado correctamente, redirigiendo al login...';
       
       setTimeout(() => this.router.navigate(['/login']), 1500);

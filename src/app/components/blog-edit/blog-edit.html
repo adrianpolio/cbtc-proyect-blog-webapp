@@ -1,0 +1,77 @@
+<div class="blog-edit-container">
+  <div class="edit-header">
+    <h1>
+      <span class="material-icons">edit</span>
+      Editar Blog
+    </h1>
+    <button class="back-btn" (click)="goHome()">
+      <span class="material-icons">arrow_back</span>
+      Volver
+    </button>
+  </div>
+
+  <!-- Información del blog -->
+  <div class="blog-info" *ngIf="blog.blogId">
+    <div class="info-item">
+      <span class="material-icons">person</span>
+      <span>Autor: {{ blog.userName }}</span>
+    </div>
+    <div class="info-item">
+      <span class="material-icons">calendar_today</span>
+      <span>Fecha: {{ blog.blogDate | date:'mediumDate' }}</span>
+    </div>
+    <div class="info-item">
+      <span class="material-icons">chat_bubble</span>
+      <span>Comentarios: {{ blog.comments?.length || 0 }}</span>
+    </div>
+  </div>
+
+  <!-- Mensajes de error/éxito -->
+  <div class="message error" *ngIf="error">
+    <span class="material-icons">error</span>
+    {{ error }}
+  </div>
+
+  <div class="message success" *ngIf="success">
+    <span class="material-icons">check_circle</span>
+    {{ success }}
+  </div>
+
+  <!-- Formulario -->
+  <form (ngSubmit)="updateBlog()" #editForm="ngForm">
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        [(ngModel)]="blog.title"
+        required
+        placeholder="Ingresa el título del blog"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Contenido</label>
+      <textarea
+        id="description"
+        name="description"
+        [(ngModel)]="blog.description"
+        required
+        placeholder="Escribe el contenido de tu blog aquí..."
+      ></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="save-btn" [disabled]="!blog.title || !blog.description">
+        <span class="material-icons">save</span>
+        Guardar Cambios
+      </button>
+      
+      <button type="button" class="cancel-btn" (click)="goHome()">
+        <span class="material-icons">cancel</span>
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>

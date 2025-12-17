@@ -1,4 +1,30 @@
 <app-header></app-header>
-<div class="blog-container">
-  <app-blog-list></app-blog-list>
+
+<div class="container">
+  <div class="header-container">
+    
+    <div class="filter-controls">
+      <span class="filter-label">
+        <span class="material-icons">sort</span>
+        Ordenar por:
+      </span>
+      
+      <select 
+        class="filter-select" 
+        [(ngModel)]="sortOption"
+        (change)="onSortChange()"
+      >
+        <option value="recent">Más Recientes</option>
+        <option value="mostCommented">Más Comentados</option>
+        <option value="alphabetical">Orden Alfabético</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="blog-container">
+    <app-blog-list 
+      [filterText]="filterText" 
+      [sortOption]="sortOption">
+    </app-blog-list>
+  </div>
 </div>

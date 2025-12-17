@@ -38,6 +38,10 @@ export class AuthService {
     return !!localStorage.getItem('token')
   }
 
+  isUser(): boolean { return localStorage.getItem('role') === 'USER'; }
+  isAdmin(): boolean { return localStorage.getItem('role') === 'ADMIN'; }
+  isSuperAdmin(): boolean { return localStorage.getItem('role') === 'SUPER_ADMIN'; }
+
   isAdminOrSuper(): boolean {
   const role = localStorage.getItem('role');
   return role === 'ADMIN' || role === 'SUPER_ADMIN';

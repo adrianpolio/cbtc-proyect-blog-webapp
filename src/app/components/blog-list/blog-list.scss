@@ -51,78 +51,120 @@
   margin-right: 4px;
   color: #95bae4;
 }
+
 .create-blog-btn {
   font-family: inherit;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;                  
+  gap: 6px;
   margin: 12px;
-  padding: 8px 10px;          
-  border-radius: 8px;        
-  background: linear-gradient(135deg, #a49ff8, #8c84f9); 
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #a49ff8, #8c84f9);
   color: #fff;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
-  border: none;   
+  border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+}
 
-  &:hover {
-    background: linear-gradient(135deg, #615ace, #5043b8); 
-    transform: translateY(-2px); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
+.create-blog-btn:hover {
+  background: linear-gradient(135deg, #615ace, #5043b8);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
 
-  &:active {
-    transform: translateY(0); 
-    box-shadow: none;
-  }
+.create-blog-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .material-icons {
   font-size: 18px;
   line-height: 1;
-  vertical-align: middle;   
+  vertical-align: middle;
 }
+
 .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
- .delete-btn {
-    font-family: inherit;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    padding: 6px 10px;
-    border-radius: 6px;
-    background: linear-gradient(135deg, #f88c8c, #f95a5a);
-    color: #fff;
-    font-size: 0.8rem;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.card-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
 
-    &:hover {
-      background: linear-gradient(135deg, #c95555, #b83b3b);
-      transform: translateY(-1px);
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-    }
+.delete-btn, .edit-btn {
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
 
-    &:active {
-      transform: translateY(0);
-      box-shadow: none;
-    }
+.delete-btn {
+  background: linear-gradient(135deg, #f88c8c, #f95a5a);
+  color: #fff;
+}
 
-    .material-icons {
-      font-size: 16px;
-      line-height: 1;
-      vertical-align: middle;
-    }
+.delete-btn:hover {
+  background: linear-gradient(135deg, #c95555, #b83b3b);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.delete-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, #8cccf9, #5aa0f9);
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background: linear-gradient(135deg, #5a99d1, #3b70b8);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.edit-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.delete-btn .material-icons,
+.edit-btn .material-icons {
+  font-size: 16px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+@media (max-width: 480px) {
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
+  
+  .card-actions {
+    align-self: flex-end;
+  }
+}

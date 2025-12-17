@@ -1,4 +1,4 @@
-.blog-create-container {
+.blog-edit-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
@@ -6,7 +6,7 @@
   color: #222;
 }
 
-.create-header {
+.edit-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,7 +15,7 @@
   border-bottom: 2px solid #e1d3f3;
 }
 
-.create-header h2 {
+.edit-header h1 {
   font-size: 1.8rem;
   font-weight: 700;
   color: #222;
@@ -25,7 +25,7 @@
   gap: 10px;
 }
 
-.create-header h2 .material-icons {
+.edit-header h1 .material-icons {
   font-size: 24px;
   color: #8c84f9;
 }
@@ -97,10 +97,6 @@
   &:hover:not(:focus) {
     border-color: #ddd;
   }
-
-  &::placeholder {
-    color: #999;
-  }
 }
 
 .form-group input {
@@ -108,9 +104,8 @@
 }
 
 .form-group textarea {
-  min-height: 250px;
+  min-height: 200px;
   resize: vertical;
-  line-height: 1.6;
 }
 
 .form-actions {
@@ -121,7 +116,7 @@
   border-top: 1px solid #eee;
 }
 
-.create-btn {
+.save-btn {
   font-family: inherit;
   display: inline-flex;
   align-items: center;
@@ -222,39 +217,26 @@
   color: #578d3a;
 }
 
-.tips {
-  margin-top: 25px;
+.blog-info {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
   padding: 15px;
-  background: linear-gradient(135deg, rgba(225, 211, 243, 0.3), rgba(200, 185, 230, 0.3));
+  background: #f8f9fa;
   border-radius: 8px;
-  border-left: 4px solid #8c84f9;
+  font-size: 0.85rem;
+  color: #666;
 }
 
-.tips h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #222;
-  margin-bottom: 10px;
+.info-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
 
   .material-icons {
-    font-size: 18px;
+    font-size: 16px;
     color: #8c84f9;
   }
-}
-
-.tips ul {
-  margin: 0;
-  padding-left: 20px;
-  font-size: 0.85rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-.tips li {
-  margin-bottom: 5px;
 }
 
 @keyframes fadeIn {
@@ -269,11 +251,11 @@
 }
 
 @media (max-width: 768px) {
-  .blog-create-container {
+  .blog-edit-container {
     padding: 15px;
   }
 
-  .create-header {
+  .edit-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
@@ -283,12 +265,13 @@
     flex-direction: column;
   }
 
-  .create-btn,
+  .save-btn,
   .cancel-btn {
     width: 100%;
   }
 
-  .form-group textarea {
-    min-height: 200px;
+  .blog-info {
+    flex-direction: column;
+    gap: 10px;
   }
 }

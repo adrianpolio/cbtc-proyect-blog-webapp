@@ -23,6 +23,9 @@ export class BlogService {
   createBlog(blog: Partial<Blog>): Observable<Blog> {
     return this.http.post<Blog>(this.baseUrl, blog);
   }
+  updateBlog(id: number, blog: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${id}`, blog);
+  }
   deleteBlog(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
