@@ -36,4 +36,8 @@ export class HeaderComponent implements OnInit {
     this.authService.logout()
     this.router.navigate(['/']) 
   }
+  isSuperAdmin(): boolean {
+    const role = localStorage.getItem('role');
+    return role === 'SUPER_ADMIN';
+  }
 }

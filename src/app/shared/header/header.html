@@ -5,9 +5,7 @@
     </a>
 
     <div class="user-area">
-      <button *ngIf="!isLoggedIn"
-              class="login-btn"
-              (click)="login()">
+      <button *ngIf="!isLoggedIn" class="login-btn" (click)="login()">
         <span class="material-icons">login</span>
         Iniciar sesión
       </button>
@@ -17,6 +15,9 @@
           <span class="material-icons">person</span>
           {{ username }}
         </span>
+        <button *ngIf="isSuperAdmin()" routerLink="/users" class="users-btn">
+        <span class="material-icons">people</span> Usuarios
+      </button>
         <button class="logout-btn" (click)="logout()">
           <span class="material-icons">logout</span>
           Salir

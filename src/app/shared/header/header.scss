@@ -67,3 +67,18 @@
   font-size: 16px;
   line-height: 1;
 }
+.users-btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  &:hover {
+    background-color: #357ab8;
+  }
+}

@@ -6,6 +6,7 @@ import { BlogListComponent } from './components/blog-list/blog-list';
 import { BlogCreateComponent } from './components/blog-create/blog-create';
 import { RegisterComponent } from './components/register/register';
 import { BlogEditComponent } from './components/blog-edit/blog-edit';
+import { UserListComponent } from './components/user-list/user-list';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' }, 
@@ -15,5 +16,6 @@ export const routes: Routes = [
     { path: 'blogs/:id', component: BlogDetailComponent },
     { path: 'blogs/edit/:id', component: BlogEditComponent },
     { path: 'blogs', component: BlogListComponent }, 
+    { path: 'users', component: UserListComponent },
     { path: '**', redirectTo: '' }
 ];
